@@ -23,6 +23,8 @@ jobs:
         pip install yfinance numpy pandas psycopg2-binary sqlalchemy 
         
     - name: Run data pipeline script
+      env:
+        DB_URL: ${{ secrets.DB_URL }}
       run: |
         cd data_pipeline
         python main-data-pipeline.py
