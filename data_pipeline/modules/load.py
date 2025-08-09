@@ -14,6 +14,8 @@ from modules.helper import *
 import pandas as pd
 import asyncio
 
+logger = logging.getLogger(__name__)
+
 async def load_stock_data(engine, stock_df:pd.DataFrame):
     """Load stock data into the database.
     

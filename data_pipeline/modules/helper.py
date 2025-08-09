@@ -15,7 +15,6 @@ logging.basicConfig(
     ]
 )
 
-logger = logging.getLogger(__name__)
 jakarta_timezone = pytz.timezone("Asia/Jakarta")
 current_date = datetime.now(jakarta_timezone).strftime("%Y-%m-%d")
 current_date_time = datetime.now(jakarta_timezone).strftime("%Y-%m-%d %H:%M:%S")

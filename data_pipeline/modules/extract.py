@@ -16,6 +16,8 @@ import json
 import yfinance as yf
 import asyncio
 
+logger = logging.getLogger(__name__)
+
 async def get_stock_data(ticker, start_date:str, end_date:str):
     """Fetch historical OHLCV data for a ticker within a date range.
 

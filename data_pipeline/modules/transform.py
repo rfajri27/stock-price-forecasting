@@ -15,6 +15,8 @@ import numpy as np
 import pandas as pd
 import asyncio
 
+logger = logging.getLogger(__name__)
+
 async def transform_stock_data(stock_df:pd.DataFrame):
     """Transform stock data to a standardized format.
 
