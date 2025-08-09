@@ -27,5 +27,4 @@ jobs:
         DB_URL: ${{ secrets.DB_URL }}
       run: |
         cd data_pipeline
-        echo $DB_URL
         python main-data-pipeline.py
