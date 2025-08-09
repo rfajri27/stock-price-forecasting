@@ -10,8 +10,6 @@ from modules.transform import transform
 from modules.load import load
 from modules.helper import *
 
-print(os.getenv("DB_URL"))
-
 async def get_latest_date():
     """Get the latest date from the stock_data table"""
     
