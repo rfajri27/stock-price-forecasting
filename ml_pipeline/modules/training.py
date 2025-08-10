@@ -163,7 +163,7 @@ async def train_lstm_model(input_shape, X_train, y_train, X_test, y_test, params
         history = model.fit(
             X_train, y_train,
             validation_data=(X_test, y_test),
-            epochs=100,
+            epochs=50,
             batch_size=16,
             verbose=0
         )
