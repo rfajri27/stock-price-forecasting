@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import RobustScaler
 import asyncio
+import joblib
 from prefect import task, get_run_logger
 from helper import *
 
@@ -128,6 +129,7 @@ async def main_data_preprocessing(df: pd.DataFrame) -> tuple:
     
     scaler = RobustScaler()
     scaler.fit(training_df["Close"].values.reshape(-1, 1))
+    joblib.dump(scaler, "artifacts/scaler.joblib")
     training_df["Close"] = scaler.transform(training_df["Close"].values.reshape(-1, 1))
     test_df["Close"] = scaler.transform(test_df["Close"].values.reshape(-1, 1))
     

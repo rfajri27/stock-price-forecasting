@@ -15,7 +15,7 @@ async def data_ingestion() -> pd.DataFrame:
     engine = get_db_engine()
     
     query = f"""
-    SELECT * FROM stock_data
+    SELECT "Date", "Close" FROM stock_data
     WHERE "Date" <= '{current_date}'
     """
     try:
