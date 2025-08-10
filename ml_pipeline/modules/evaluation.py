@@ -5,7 +5,7 @@ The tasks are:
 - get_best_run: Get the best run from the experiment
 """
 
-from helper import *
+from modules.helper import *
 from mlflow.tracking import MlflowClient
 import pandas as pd
 import mlflow

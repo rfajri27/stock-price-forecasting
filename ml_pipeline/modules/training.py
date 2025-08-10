@@ -17,7 +17,7 @@ import asyncio
 import mlflow
 from prefect import task, get_run_logger
 from mlflow.models import infer_signature
-from helper import *
+from modules.helper import *
 import tensorflow as tf
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, mean_absolute_percentage_error
 from sklearn.linear_model import LinearRegression, Ridge, Lasso
@@ -126,8 +126,6 @@ def get_params_for_lstm():
     """
     lstm_params_list = [
         {"units": 32, "dropout": 0.2},
-        {"units": 32, "dropout": 0.3},
-        {"units": 64, "dropout": 0.3},
         {"units": 64, "dropout": 0.2},
     ]
     return lstm_params_list

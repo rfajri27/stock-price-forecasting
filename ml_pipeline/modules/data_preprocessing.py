@@ -14,7 +14,7 @@ from sklearn.preprocessing import RobustScaler
 import asyncio
 import joblib
 from prefect import task, get_run_logger
-from helper import *
+from modules.helper import *
 
 @task(name="train_test_split")
 async def training_test_split(df: pd.DataFrame, prop_train=0.8) -> tuple:

@@ -1,11 +1,6 @@
 from prefect import flow, get_run_logger
 
-from modules.helper import *
-from modules.data_ingestion import data_ingestion
-from modules.data_preprocessing import main_data_preprocessing
-from modules.training import main_training
-from modules.evaluation import get_best_run
-from modules.pusher import push_model_to_registry
+from modules import *
 
 @flow(name="main_ml_pipeline")
 async def main_ml_pipeline():
