@@ -2,6 +2,8 @@
 
 A comprehensive machine learning pipeline for stock price forecasting using Prefect, MLflow, and Streamlit. This project includes data ingestion, preprocessing, model training, evaluation, and a web-based prediction interface.
 
+![Data Pipeline Flow](assets/flow.png)
+
 ## 🚀 Features
 
 - **ML Pipeline**: Automated training pipeline with Prefect orchestration
@@ -25,7 +27,7 @@ stock-price-forecasting/
 ├── ml_pipeline/                 # ML training pipeline
 │   ├── main_ml_pipeline.py      # Main ML pipeline orchestration
 │   └── modules/                 # ML pipeline modules
-├── notebooks/                    # Jupyter notebooks for exploration
+│   └── artifacts/               # Model artifacts
 ├── requirements.txt              # Python dependencies
 └── README.md                     # This file
 ```
@@ -85,6 +87,8 @@ This will:
 
 ### 2. ML Training Pipeline
 
+![ML Pipeline Architecture](assets/ml-pipeline.png)
+
 Train the forecasting model:
 
 ```bash
@@ -121,34 +125,8 @@ The model uses engineered features including:
 
 ### Algorithms
 
-- **Default**: scikit-learn GradientBoostingRegressor
+- **Framework**: Regression Based Model & LSTM Model
 - **Evaluation**: Mean Absolute Error, Root Mean Square Error, R² Score
-
-## 🔧 Development
-
-### Project Components
-
-#### ML Pipeline (`ml_pipeline/`)
-- **Data Ingestion**: `modules/data_ingestion.py`
-- **Preprocessing**: `modules/data_preprocessing.py`
-- **Training**: `modules/training.py`
-- **Evaluation**: `modules/evaluation.py`
-- **Model Pusher**: `modules/pusher.py`
-
-#### Data Pipeline (`data_pipeline/`)
-- **Extract**: `modules/extract.py` - Data extraction from APIs/databases
-- **Transform**: `modules/transform.py` - Data cleaning and transformation
-- **Load**: `modules/load.py` - Data loading into target database
-
-#### Web Application (`app/`)
-- **Main App**: `main.py` - Streamlit interface
-- **Helper Modules**: `modules/` - Utility functions and data processing
-
-### Adding New Features
-
-1. **New Technical Indicators**: Add to `ml_pipeline/modules/data_preprocessing.py`
-2. **New Models**: Extend `ml_pipeline/modules/training.py`
-3. **New Data Sources**: Modify `data_pipeline/modules/extract.py`
 
 ## 🆘 Troubleshooting
 
@@ -165,11 +143,3 @@ The model uses engineered features including:
 - Verify environment variable configuration
 - Ensure database connectivity (if using database source)
 - Check MLflow model registry for model availability
-
-## 🔮 Future Enhancements
-
-- [ ] Real-time streaming data integration
-- [ ] Advanced ensemble methods
-- [ ] Automated hyperparameter tuning
-- [ ] API endpoints for model serving
-- [ ] Docker containerization
