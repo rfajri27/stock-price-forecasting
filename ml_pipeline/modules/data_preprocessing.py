@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from sklearn.preprocessing import RobustScaler
 import asyncio
 from prefect import task, get_run_logger
 from helper import *
@@ -125,6 +126,11 @@ async def main_data_preprocessing(df: pd.DataFrame) -> tuple:
     
     training_df, test_df = await training_test_split(df)
     
+    scaler = RobustScaler()
+    scaler.fit(training_df["Close"].values.reshape(-1, 1))
+    training_df["Close"] = scaler.transform(training_df["Close"].values.reshape(-1, 1))
+    test_df["Close"] = scaler.transform(test_df["Close"].values.reshape(-1, 1))
+    
     training_set_regression, test_set_regression = await asyncio.gather(
         data_preprocessing_regression(training_df),
         data_preprocessing_regression(test_df)
@@ -139,9 +145,10 @@ async def main_data_preprocessing(df: pd.DataFrame) -> tuple:
 
 
 if __name__ == "__main__":
-    from data_ingestion import data_ingestion   
+    from data_ingestion import data_ingestion
     df = asyncio.run(data_ingestion())
     training_set_regression, training_set_lstm, test_set_regression, test_set_lstm = asyncio.run(main_data_preprocessing(df))
+    print(training_set_regression[0].head())
     print("training_set_regression: ", training_set_regression[0].shape, training_set_regression[1].shape)
     print("test_set_regression: ", test_set_regression[0].shape, test_set_regression[1].shape)
     print("training_set_lstm: ", training_set_lstm[0].shape, training_set_lstm[1].shape)
