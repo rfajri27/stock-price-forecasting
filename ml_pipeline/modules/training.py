@@ -15,6 +15,7 @@ import pandas as pd
 import numpy as np
 import asyncio
 import mlflow
+from prefect import task, get_run_logger
 from mlflow.models import infer_signature
 from helper import *
 import tensorflow as tf

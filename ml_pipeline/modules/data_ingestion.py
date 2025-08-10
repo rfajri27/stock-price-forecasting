@@ -1,3 +1,10 @@
+"""
+This module contains the tasks for ingesting the data.
+
+The tasks are:
+- data_ingestion: Ingest historical stock data from the database
+"""
+
 import pandas as pd
 from prefect import task, get_run_logger
 from helper import *

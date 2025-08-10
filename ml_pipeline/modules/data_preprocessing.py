@@ -1,3 +1,13 @@
+"""
+This module contains the tasks for preprocessing the data.
+
+The tasks are:
+- training_test_split: Split the data into train and test sets
+- data_preprocessing_regression: Preprocess the data for regression model
+- data_preprocessing_lstm: Preprocess the data for LSTM model
+- main_data_preprocessing: Main function to preprocess the data
+"""
+
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import RobustScaler
