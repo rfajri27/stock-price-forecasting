@@ -11,9 +11,6 @@ import pandas as pd
 import mlflow
 from prefect import task, get_run_logger
 
-mlflow.set_tracking_uri(f"https://dagshub.com/{USERNAME}/{REPO_NAME}.mlflow")
-client = MlflowClient()
-
 @task(name="get_best_run")
 async def get_best_run():
     """
