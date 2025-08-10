@@ -10,6 +10,8 @@ from modules.transform import transform
 from modules.load import load
 from modules.helper import *
 
+logger = logging.getLogger(__name__)
+
 async def get_latest_date():
     """Get the latest date from the stock_data table"""
     
