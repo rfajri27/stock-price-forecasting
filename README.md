@@ -77,6 +77,7 @@ DAGSHUB_TOKEN=YOUR_TOKEN
 ## 🚀 Quick Start
 
 ### 1. Data Pipeline
+![](assets/Screenshot%202025-08-11%20082751.png)
 
 Run the data collection pipeline to gather stock data:
 
